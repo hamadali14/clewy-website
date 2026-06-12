@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Clewy | The Future of Programming",
-  description: "A highly-composable, open-source hybrid language engineered for advanced cloud architectures, deterministic business logic, and memory-safe enterprise systems.",
+  description:
+    "A highly-composable, open-source hybrid language engineered for advanced cloud architectures, deterministic business logic, and memory-safe enterprise systems.",
 };
 
 export default function RootLayout({
@@ -27,6 +28,21 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PQV4V1PZKE"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-PQV4V1PZKE');
+            `,
+          }}
+        />
+      </head>
+
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
